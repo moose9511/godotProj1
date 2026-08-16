@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d0xqyq5bj6jro"]
+
+[ext_resource type="Script" uid="uid://77qn8ok07a0j" path="res://scripts/character_body_2d.gd" id="1_lj8jo"]
+[ext_resource type="Script" uid="uid://crs1hudinugj1" path="res://scripts/gun.gd" id="2_g2els"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_84bxk"]
+size = Vector2(20, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jqt1i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqt1i"]
+
+[node name="player" type="CharacterBody2D" unique_id=1565869958]
+script = ExtResource("1_lj8jo")
+speed = 200.0
+shoot_force = 500.0
+shoot_friction_ground = 800.0
+shoot_friction_air = 200.0
+
+[node name="playerSprite" type="Sprite2D" parent="." unique_id=1020574637]
+position = Vector2(0, -10)
+texture = SubResource("PlaceholderTexture2D_84bxk")
+
+[node name="gun" type="Sprite2D" parent="." unique_id=1090167864 node_paths=PackedStringArray("player_position")]
+position = Vector2(0, -10)
+rotation = 1.5707964
+scale = Vector2(3.801, 27.29)
+texture = SubResource("PlaceholderTexture2D_jqt1i")
+offset = Vector2(0, -0.5)
+script = ExtResource("2_g2els")
+player_position = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461091420]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_jqt1i")
+
+[node name="Timer" type="Timer" parent="." unique_id=1166200366]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

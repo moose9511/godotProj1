@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://uyicc881kwcy"]
+
+[ext_resource type="PackedScene" uid="uid://d0xqyq5bj6jro" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://5jr1sbwdiyi0" path="res://scenes/platform.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cwuom120odecd" path="res://scenes/killzone.tscn" id="3_lnu2h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jqt1i"]
+
+[node name="Game" type="Node2D" unique_id=223343208]
+
+[node name="platforms" type="Node" parent="." unique_id=1140404718]
+
+[node name="platform" parent="platforms" unique_id=1106216866 instance=ExtResource("1_yqjtg")]
+position = Vector2(9, -6)
+scale = Vector2(41.95999, 1)
+
+[node name="platform2" parent="platforms" unique_id=1050572569 instance=ExtResource("1_yqjtg")]
+position = Vector2(326, -286)
+scale = Vector2(5.96, 1)
+
+[node name="platform3" parent="platforms" unique_id=275300083 instance=ExtResource("1_yqjtg")]
+position = Vector2(8, -294)
+scale = Vector2(5.96, 1)
+
+[node name="platform4" parent="platforms" unique_id=1729164400 instance=ExtResource("1_yqjtg")]
+position = Vector2(241, -491)
+scale = Vector2(5.96, 1)
+
+[node name="platform5" parent="platforms" unique_id=1913611066 instance=ExtResource("1_yqjtg")]
+position = Vector2(-391, -661)
+scale = Vector2(18.280003, 1)
+
+[node name="platform6" parent="platforms" unique_id=1307336374 instance=ExtResource("1_yqjtg")]
+position = Vector2(-646, -80)
+scale = Vector2(1, 5.7599993)
+
+[node name="platform7" parent="platforms" unique_id=988127255 instance=ExtResource("1_yqjtg")]
+position = Vector2(216, -91)
+scale = Vector2(1, 5.7599993)
+
+[node name="player" parent="." unique_id=1565869958 instance=ExtResource("1_uwrxv")]
+position = Vector2(-3, -60)
+jump_speed = 500.0
+shoot_friction_ground = 2500.0
+shoot_friction_air = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1100613669]
+position = Vector2(0, 6)
+zoom = Vector2(1.545, 1.545)
+limit_bottom = 80
+position_smoothing_speed = 10.0
+
+[node name="killzone" parent="." unique_id=1235052398 instance=ExtResource("3_lnu2h")]
+position = Vector2(-38, 286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1093955383]
+position = Vector2(15, -126)
+shape = SubResource("WorldBoundaryShape2D_jqt1i")
