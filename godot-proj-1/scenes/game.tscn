@@ -38,6 +38,14 @@ scale = Vector2(1, 5.7599993)
 position = Vector2(-218, -94)
 scale = Vector2(1, 5.7599993)
 
+[node name="platform8" parent="platforms" unique_id=922646484 instance=ExtResource("1_yqjtg")]
+position = Vector2(663, -316)
+scale = Vector2(1, 19.88)
+
+[node name="platform9" parent="platforms" unique_id=1196145440 instance=ExtResource("1_yqjtg")]
+position = Vector2(546, -424)
+scale = Vector2(1, 19.88)
+
 [node name="player" parent="." unique_id=1565869958 instance=ExtResource("1_uwrxv")]
 position = Vector2(-3, -60)
 jump_speed = 500.0

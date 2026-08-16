@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
+@onready var ray_left: RayCast2D = $RayLeft
+@onready var ray_right: RayCast2D = $RayRight
 
 @export var jump_speed: float
 @export var speed: float
@@ -17,7 +19,7 @@ var can_move: bool = true
 func _physics_process(delta: float) -> void:
 	
 	if velocity != Vector2.ZERO:
-		print(str(extra_velocity) + " " + str(velocity))
+		print(" " + str(velocity))
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -52,20 +54,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# do wall slide and jump
-	if direction != 0 and velocity.x == 0 and !is_on_floor() and (direction == sign(extra_velocity.x) or extra_velocity.x == 0):
-
+	var dir := velocity + extra_velocity
+	if ((ray_left.is_colliding() and sign(dir.x) == -1) or (ray_right.is_colliding() and sign(dir.x) == 1)) and (direction != 0 or extra_velocity.x != 0):
+		print('a')
 		# bounces off wall
 		if Input.is_action_pressed("jump"):
 			can_shoot = true
-			#disable_movement()
+			disable_movement()
 			direction = -direction
 			#velocity.x = direction * speed
-			extra_velocity.x = -extra_velocity.x
+			extra_velocity.x = -extra_velocity.x 
 			velocity.y = -jump_speed / 2
 		# slides down wall
 		else:
 			velocity.y = 0
-			print("why")
 	
 	# undo extra velocity to avoid accumulation
 	velocity -= extra_velocity

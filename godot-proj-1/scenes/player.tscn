@@ -8,7 +8,21 @@ size = Vector2(20, 20)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jqt1i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jqt1i"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqt1i"]
+
+[sub_resource type="GDScript" id="GDScript_g2els"]
+script/source = "extends RayCast2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="player" type="CharacterBody2D" unique_id=1565869958]
 script = ExtResource("1_lj8jo")
@@ -32,10 +46,21 @@ player_position = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461091420]
 position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_jqt1i")
+shape = SubResource("RectangleShape2D_jqt1i")
 
 [node name="Timer" type="Timer" parent="." unique_id=1166200366]
-wait_time = 1.375
+wait_time = 0.3
 one_shot = true
+
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=337269376]
+position = Vector2(0, -20)
+rotation = 1.5707964
+target_position = Vector2(0, 11)
+script = SubResource("GDScript_g2els")
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=2041503675]
+position = Vector2(0, -20)
+rotation = -1.5707964
+target_position = Vector2(0, 11)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
