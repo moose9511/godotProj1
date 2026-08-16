@@ -35,6 +35,7 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_jqt1i")
 
 [node name="Timer" type="Timer" parent="." unique_id=1166200366]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
