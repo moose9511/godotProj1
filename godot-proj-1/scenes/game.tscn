@@ -12,7 +12,7 @@
 
 [node name="platform" parent="platforms" unique_id=1106216866 instance=ExtResource("1_yqjtg")]
 position = Vector2(9, -6)
-scale = Vector2(41.95999, 1)
+scale = Vector2(167.71997, 1)
 
 [node name="platform2" parent="platforms" unique_id=1050572569 instance=ExtResource("1_yqjtg")]
 position = Vector2(326, -286)
@@ -39,7 +39,7 @@ position = Vector2(-218, -94)
 scale = Vector2(1, 5.7599993)
 
 [node name="platform8" parent="platforms" unique_id=922646484 instance=ExtResource("1_yqjtg")]
-position = Vector2(663, -316)
+position = Vector2(663, -395)
 scale = Vector2(1, 19.88)
 
 [node name="platform9" parent="platforms" unique_id=1196145440 instance=ExtResource("1_yqjtg")]
@@ -48,13 +48,10 @@ scale = Vector2(1, 19.88)
 
 [node name="player" parent="." unique_id=1565869958 instance=ExtResource("1_uwrxv")]
 position = Vector2(-3, -60)
-jump_speed = 500.0
-shoot_friction_ground = 2500.0
-shoot_friction_air = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1100613669]
 position = Vector2(0, 6)
-zoom = Vector2(1.545, 1.545)
+zoom = Vector2(2, 2)
 limit_bottom = 80
 position_smoothing_speed = 10.0
 

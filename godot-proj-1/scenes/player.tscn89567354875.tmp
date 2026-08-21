@@ -1,34 +1,11 @@
 [gd_scene format=3 uid="uid://d0xqyq5bj6jro"]
 
 [ext_resource type="Script" uid="uid://77qn8ok07a0j" path="res://scripts/character_body_2d.gd" id="1_lj8jo"]
+[ext_resource type="Script" uid="uid://crs1hudinugj1" path="res://scripts/gun.gd" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://b0vdw8b6rov1i" path="res://assets/textures/gun.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://lbxyqv7n0ccp" path="res://assets/textures/guy.png" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dpnhjtu317jdn" path="res://assets/textures/guy.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://vobk26smgyfr" path="res://assets/textures/bullet.png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dc6125gnujxu1" path="res://assets/textures/reload.png" id="4_dqkch"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
-atlas = ExtResource("2_tuyoq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = ExtResource("2_tuyoq")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e17h2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlg0r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ej7")
-}],
-"loop": 1,
-"name": &"guy",
-"speed": 5.0
-}]
-
-[sub_resource type="GDScript" id="GDScript_a8ls1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("3_qhqgy")
@@ -136,28 +113,25 @@ script = ExtResource("1_lj8jo")
 jump_speed = 500.0
 speed = 200.0
 shoot_force = 500.0
-ground_friction = 800.0
-air_friction = 10.0
-slide_friction = 200.0
+shoot_friction_ground = 800.0
 reload_time = 0.4
 
-[node name="playerSprite" type="AnimatedSprite2D" parent="." unique_id=70061960]
-position = Vector2(0, -11)
-sprite_frames = SubResource("SpriteFrames_e17h2")
-animation = &"guy"
-autoplay = "guy"
-frame_progress = 0.5607819
+[node name="playerSprite" type="Sprite2D" parent="." unique_id=1020574637]
+z_index = 5
+position = Vector2(0, -10)
+texture = ExtResource("2_tuyoq")
 offset = Vector2(0, -5)
 
-[node name="gun" type="Sprite2D" parent="." unique_id=1090167864]
+[node name="gun" type="Sprite2D" parent="." unique_id=1090167864 node_paths=PackedStringArray("player_position")]
 z_index = 5
 position = Vector2(0, -10)
 texture = ExtResource("2_qlg0r")
 offset = Vector2(10.215, 0)
-script = SubResource("GDScript_a8ls1")
+script = ExtResource("2_g2els")
+player_position = NodePath("..")
 
 [node name="ammo" type="AnimatedSprite2D" parent="." unique_id=1265154132]
-position = Vector2(0, -37)
+position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_iywne")
 animation = &"ammo"
 
