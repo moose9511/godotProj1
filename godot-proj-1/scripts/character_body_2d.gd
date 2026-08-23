@@ -78,13 +78,13 @@ func _physics_process(delta: float) -> void:
             
         jumped = false
         
+        # do long jump if stopped sliding
         if Input.is_action_just_released("slide") and sliding:
             sliding = false
             extra_velocity.x += slide_force * sign(dir)
             jump(false)
-        
-        if pressed_jump:
-            print(pressed_jump)
+
+        # jump when player presses jump and if they're moving while ledge jumping
         if pressed_jump and ((is_ledge_jumping and dir != 0) or not is_ledge_jumping):
             jump()
             
