@@ -116,18 +116,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqt1i"]
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
-script/source = "extends RayCast2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="player" type="CharacterBody2D" unique_id=1565869958]
 z_index = 5
@@ -136,6 +124,7 @@ script = ExtResource("1_lj8jo")
 jump_speed = 500.0
 speed = 200.0
 shoot_force = 500.0
+slide_force = 200.0
 ground_friction = 800.0
 air_friction = 10.0
 slide_friction = 200.0
@@ -185,6 +174,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Shoot" type="Timer" parent="Timers" unique_id=1228264841]
+wait_time = 0.2
+one_shot = true
+
 [node name="RayLeft" type="RayCast2D" parent="." unique_id=337269376]
 position = Vector2(0, -20)
 rotation = 1.5707964
@@ -199,3 +192,5 @@ target_position = Vector2(0, 11)
 [connection signal="animation_finished" from="reload" to="." method="_on_reload_animation_finished"]
 [connection signal="timeout" from="Timers/DisableMovement" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/LedgeJump" to="." method="_on_ledge_jump_timeout"]
+[connection signal="timeout" from="Timers/Shoot" to="." method="_on_shoot_timeout"]
+[connection signal="timeout" from="Timers/Shoot" to="." method="_on_ledge_jump_timeout"]

@@ -1,63 +1,104 @@
 [gd_scene format=3 uid="uid://uyicc881kwcy"]
 
+[ext_resource type="Script" uid="uid://1wxp8dng2xma" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://d0xqyq5bj6jro" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://5jr1sbwdiyi0" path="res://scenes/platform.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cwuom120odecd" path="res://scenes/killzone.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b167tvcnllc0a" path="res://scenes/gun_pickup.tscn" id="4_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jqt1i"]
 
 [node name="Game" type="Node2D" unique_id=223343208]
 
+[node name="GameManager" type="Node" parent="." unique_id=516743553]
+unique_name_in_owner = true
+script = ExtResource("1_iywne")
+
 [node name="platforms" type="Node" parent="." unique_id=1140404718]
 
 [node name="platform" parent="platforms" unique_id=1106216866 instance=ExtResource("1_yqjtg")]
-position = Vector2(9, -6)
-scale = Vector2(167.71997, 1)
+position = Vector2(1072, 16)
+scale = Vector2(15, 1)
 
-[node name="platform2" parent="platforms" unique_id=1050572569 instance=ExtResource("1_yqjtg")]
-position = Vector2(326, -286)
-scale = Vector2(5.96, 1)
+[node name="platform3" parent="platforms" unique_id=697816687 instance=ExtResource("1_yqjtg")]
+position = Vector2(1296, -64)
+scale = Vector2(1, 5)
 
-[node name="platform3" parent="platforms" unique_id=275300083 instance=ExtResource("1_yqjtg")]
-position = Vector2(8, -294)
-scale = Vector2(5.96, 1)
+[node name="platform2" parent="platforms" unique_id=1080246008 instance=ExtResource("1_yqjtg")]
+position = Vector2(1776.0001, -128)
+scale = Vector2(30, 1)
 
-[node name="platform4" parent="platforms" unique_id=1729164400 instance=ExtResource("1_yqjtg")]
-position = Vector2(241, -491)
-scale = Vector2(5.96, 1)
+[node name="platform4" parent="platforms" unique_id=1993248243 instance=ExtResource("1_yqjtg")]
+position = Vector2(104.00001, 16)
+scale = Vector2(13, 1)
 
-[node name="platform5" parent="platforms" unique_id=1913611066 instance=ExtResource("1_yqjtg")]
-position = Vector2(-391, -661)
-scale = Vector2(18.280003, 1)
+[node name="platform6" parent="platforms" unique_id=993943612 instance=ExtResource("1_yqjtg")]
+position = Vector2(480, -40)
+scale = Vector2(4, 1)
 
-[node name="platform6" parent="platforms" unique_id=1307336374 instance=ExtResource("1_yqjtg")]
-position = Vector2(-646, -80)
-scale = Vector2(1, 5.7599993)
+[node name="platform7" parent="platforms" unique_id=1879280484 instance=ExtResource("1_yqjtg")]
+position = Vector2(688, -96)
+scale = Vector2(4, 1)
 
-[node name="platform7" parent="platforms" unique_id=988127255 instance=ExtResource("1_yqjtg")]
-position = Vector2(-218, -94)
-scale = Vector2(1, 5.7599993)
+[node name="platform5" parent="platforms" unique_id=705671141 instance=ExtResource("1_yqjtg")]
+position = Vector2(-88, -320)
+scale = Vector2(1, 20)
 
-[node name="platform8" parent="platforms" unique_id=922646484 instance=ExtResource("1_yqjtg")]
-position = Vector2(663, -395)
-scale = Vector2(1, 19.88)
+[node name="platform8" parent="platforms" unique_id=510906871 instance=ExtResource("1_yqjtg")]
+position = Vector2(1776, -296)
+scale = Vector2(1, 10)
 
-[node name="platform9" parent="platforms" unique_id=1196145440 instance=ExtResource("1_yqjtg")]
-position = Vector2(546, -424)
-scale = Vector2(1, 19.88)
+[node name="platform9" parent="platforms" unique_id=317972278 instance=ExtResource("1_yqjtg")]
+position = Vector2(1640.0001, -304)
+scale = Vector2(3, 1)
+
+[node name="platform10" parent="platforms" unique_id=2147037584 instance=ExtResource("1_yqjtg")]
+position = Vector2(1712, -440)
+scale = Vector2(3, 1)
+
+[node name="platform11" parent="platforms" unique_id=1414438534 instance=ExtResource("1_yqjtg")]
+position = Vector2(2928.0002, -128)
+scale = Vector2(7, 1)
+
+[node name="platform12" parent="platforms" unique_id=1903552356 instance=ExtResource("1_yqjtg")]
+position = Vector2(3520.0002, -128)
+scale = Vector2(30, 1)
+
+[node name="platform13" parent="platforms" unique_id=1749460084 instance=ExtResource("1_yqjtg")]
+position = Vector2(3208, -424.00003)
+scale = Vector2(1, 15)
+
+[node name="platform14" parent="platforms" unique_id=74189043 instance=ExtResource("1_yqjtg")]
+position = Vector2(3136, -304.00003)
+scale = Vector2(1, 12)
+
+[node name="platform15" parent="platforms" unique_id=859232048 instance=ExtResource("1_yqjtg")]
+position = Vector2(2952, -312)
+scale = Vector2(3, 1)
+
+[node name="platform16" parent="platforms" unique_id=2061223154 instance=ExtResource("1_yqjtg")]
+position = Vector2(3046.9998, -459.99997)
+rotation = -0.2617994
+scale = Vector2(5, 1)
 
 [node name="player" parent="." unique_id=1565869958 instance=ExtResource("1_uwrxv")]
-position = Vector2(-3, -60)
+unique_name_in_owner = true
+position = Vector2(1912, -184)
+jump_speed = 400.0
+shoot_force = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1100613669]
-position = Vector2(0, 6)
+position = Vector2(0, -24)
 zoom = Vector2(2, 2)
 limit_bottom = 80
 position_smoothing_speed = 10.0
 
-[node name="killzone" parent="." unique_id=1235052398 instance=ExtResource("3_lnu2h")]
+[node name="bounds" parent="." unique_id=1235052398 instance=ExtResource("3_lnu2h")]
 position = Vector2(-38, 286)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1093955383]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds" unique_id=1093955383]
 position = Vector2(15, -126)
 shape = SubResource("WorldBoundaryShape2D_jqt1i")
+
+[node name="GunPickup" parent="." unique_id=1029039524 instance=ExtResource("4_lbhrr")]
+position = Vector2(1072, -16)

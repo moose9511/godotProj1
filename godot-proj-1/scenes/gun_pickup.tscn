@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b167tvcnllc0a"]
+
+[ext_resource type="Script" uid="uid://0k820d5rntb7" path="res://scripts/gun_pickup.gd" id="1_g12hn"]
+[ext_resource type="Texture2D" uid="uid://b0vdw8b6rov1i" path="res://assets/textures/gun.png" id="2_fel3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqt1i"]
+
+[node name="GunPickup" type="Area2D" unique_id=1029039524]
+script = ExtResource("1_g12hn")
+
+[node name="collider" type="CollisionShape2D" parent="." unique_id=1475554209]
+shape = SubResource("RectangleShape2D_jqt1i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2060074368]
+texture = ExtResource("2_fel3n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
