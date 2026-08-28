@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c0bs7w323acos"]
+
+[ext_resource type="Script" uid="uid://c2yia5ybh2h3b" path="res://scripts/checkpoint.gd" id="1_yyywg"]
+[ext_resource type="Texture2D" uid="uid://dsh5d04pjpnmg" path="res://assets/textures/flag.png" id="2_ywqth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqt1i"]
+size = Vector2(20, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsimk"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqsag"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c45tw"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jpe"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc08m"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqt1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsimk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqsag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c45tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55jpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc08m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Checkpoint" type="Area2D" unique_id=1744604008]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_yyywg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609478298]
+position = Vector2(0, -14.5)
+shape = SubResource("RectangleShape2D_jqt1i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1969169244]
+position = Vector2(-2, -16)
+sprite_frames = SubResource("SpriteFrames_jqt1i")
+autoplay = "default"
+frame_progress = 0.5586626
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

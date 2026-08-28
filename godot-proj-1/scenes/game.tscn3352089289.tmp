@@ -131,7 +131,15 @@ scale = Vector2(10, 1)
 
 [node name="player" parent="." unique_id=1565869958 instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
-position = Vector2(1696, -456)
+position = Vector2(-8, -520)
+jump_speed = 400.0
+shoot_force = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1100613669]
+position = Vector2(0, -24)
+zoom = Vector2(2, 2)
+limit_bottom = 80
+position_smoothing_speed = 10.0
 
 [node name="bounds" parent="." unique_id=1235052398 instance=ExtResource("3_lnu2h")]
 position = Vector2(-38, 286)
@@ -144,7 +152,4 @@ shape = SubResource("WorldBoundaryShape2D_jqt1i")
 position = Vector2(1072, -16)
 
 [node name="Checkpoint" parent="." unique_id=1744604008 instance=ExtResource("6_p57ef")]
-position = Vector2(1728, -456)
-
-[node name="Checkpoint2" parent="." unique_id=2144670285 instance=ExtResource("6_p57ef")]
-position = Vector2(3296, -144)
+position = Vector2(1304, -144)

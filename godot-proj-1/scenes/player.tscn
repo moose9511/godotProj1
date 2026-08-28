@@ -120,10 +120,11 @@ animations = [{
 [node name="player" type="CharacterBody2D" unique_id=1565869958]
 z_index = 5
 position = Vector2(2, -1)
+collision_layer = 3
 script = ExtResource("1_lj8jo")
-jump_speed = 500.0
+jump_speed = 400.0
 speed = 200.0
-shoot_force = 500.0
+shoot_force = 400.0
 slide_force = 200.0
 ground_friction = 800.0
 air_friction = 10.0
@@ -188,6 +189,12 @@ script = SubResource("GDScript_g2els")
 position = Vector2(0, -20)
 rotation = -1.5707964
 target_position = Vector2(0, 11)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=422940039]
+position = Vector2(0, -24)
+zoom = Vector2(2, 2)
+limit_bottom = 80
+position_smoothing_speed = 10.0
 
 [connection signal="animation_finished" from="reload" to="." method="_on_reload_animation_finished"]
 [connection signal="timeout" from="Timers/DisableMovement" to="." method="_on_timer_timeout"]
