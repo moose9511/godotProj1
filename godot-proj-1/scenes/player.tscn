@@ -176,7 +176,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Shoot" type="Timer" parent="Timers" unique_id=1228264841]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [node name="RayLeft" type="RayCast2D" parent="." unique_id=337269376]
@@ -185,8 +185,17 @@ rotation = 1.5707964
 target_position = Vector2(0, 11)
 script = SubResource("GDScript_g2els")
 
+[node name="RayLeft2" type="RayCast2D" parent="." unique_id=476939420]
+rotation = 1.5707964
+target_position = Vector2(0, 11)
+script = SubResource("GDScript_g2els")
+
 [node name="RayRight" type="RayCast2D" parent="." unique_id=2041503675]
 position = Vector2(0, -20)
+rotation = -1.5707964
+target_position = Vector2(0, 11)
+
+[node name="RayRight2" type="RayCast2D" parent="." unique_id=1690520759]
 rotation = -1.5707964
 target_position = Vector2(0, 11)
 
@@ -200,4 +209,3 @@ position_smoothing_speed = 10.0
 [connection signal="timeout" from="Timers/DisableMovement" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/LedgeJump" to="." method="_on_ledge_jump_timeout"]
 [connection signal="timeout" from="Timers/Shoot" to="." method="_on_shoot_timeout"]
-[connection signal="timeout" from="Timers/Shoot" to="." method="_on_ledge_jump_timeout"]
