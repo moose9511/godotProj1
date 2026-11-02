@@ -34,11 +34,18 @@ var has_gun: bool = true
 var is_ledge_jumping: bool = false
 var reloading: bool = false
 
+var max_height: float = 0
+var start_height: float = 0
+
 var posy = 0.0
 func _ready() -> void:
+	start_height = position.y
 	reload.sprite_frames.set_animation_speed("reload", reload.sprite_frames.get_frame_count("reload") / reload_time)
 	
 func _physics_process(delta: float) -> void:
+	if abs(start_height - position.y) > max_height:
+		max_height = abs(start_height - position.y)
+		print("Max jump height: " + str(max_height))
 	if can_move:
 		move_direction = Input.get_axis("move_left", "move_right")
 	velocity.x = move_direction * speed
@@ -143,7 +150,7 @@ func midair_logic(delta: float):
 		
 func check_wall_jump():
 	# checks if player is going in direction of wall
-	if ((check_left_rays()[0] and move_direction < 0) or (check_right_rays()[0] and move_direction > 0)):
+	if ((check_left_rays()[0] and direction.x < 0) or (check_right_rays()[0] and direction.x > 0)):
 			
 		# bounces off wall
 		if !Input.is_action_pressed("slide") and not is_on_floor():
@@ -205,6 +212,7 @@ func process_flip():
 		player_sprite.flip_h = false
 		
 func jump(lose_x_velocity: bool = true):
+	start_height = position.y
 	ledge_jump_timer.stop()
 	if lose_x_velocity:
 		extra_velocity.x = move_toward(extra_velocity.x, 0, speed)

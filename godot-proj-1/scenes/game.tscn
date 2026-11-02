@@ -114,7 +114,7 @@ position = Vector2(3408, -360)
 scale = Vector2(1, 4)
 
 [node name="platform21" parent="platforms" unique_id=1741514887 instance=ExtResource("1_yqjtg")]
-position = Vector2(3536, -480)
+position = Vector2(3536, -496)
 scale = Vector2(1, 5)
 
 [node name="platform22" parent="platforms" unique_id=301114952 instance=ExtResource("1_yqjtg")]
